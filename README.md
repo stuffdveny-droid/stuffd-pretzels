@@ -18,7 +18,7 @@ Home, Shop, Flavors, The Stuff’d Idea, Our Story, Journal, Find Us, Wholesale,
 
 The seven Stuff’d Staple Pouch flavors and two Party Box sizes, product numbers, and prices mirror the POS menu supplied for this site. See `assets/js/site.js` and `shop.html`. New flavor concepts are labeled as ideas and are not represented as current products.
 
-The preview bag is not a checkout system. Online ordering is provided separately through the VE Hub Buy Button when configured. Ingredient, allergen, shipping, stockist, wholesale, and contact details are only shown when confirmed; pages mark pending information clearly.
+All nine current menu items have VE Hub Buy Buttons for one-time purchases. Shop cards, quick view, the Party Box selector, and the homepage’s “Teleport to the store” hero link make the customer checkout path easy to find. Ingredient, allergen, shipping, stockist, wholesale, and contact details are only shown when confirmed; pages mark pending information clearly.
 
 ## Deployment
 

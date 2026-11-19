@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@300..600&family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=11">
+  <link rel="stylesheet" href="assets/css/style.css?v=12">
   <script>try{var c=document.documentElement.classList,n=sessionStorage.getItem("stuffd-nav")==="1",s=sessionStorage.getItem("stuffd-seen")==="1";if(n)c.add("is-nav");if(n||s)c.add("skip-preloader")}catch(e){}</script>
 </head>
 <body data-page="home">
@@ -66,7 +66,7 @@
             </h1>
             <p class="hero-tag">It’s what’s on the inside that counts.</p>
             <div class="hero-cta">
-              <a class="btn" href="shop.html" data-magnetic><span class="btn-label">Shop the bites</span></a>
+              <a class="btn" href="shop.html#boxes" data-magnetic><span class="btn-label">Teleport to the store</span></a>
               <a class="btn btn--ghost" href="story.html" data-magnetic><span class="btn-label">Meet Stuff’d</span></a>
             </div>
           </div>
@@ -79,7 +79,7 @@
               <span class="marquee-item">Seven current flavors</span><span class="marquee-sep" data-pretzel></span>
               <span class="marquee-item"><em>Two</em> party box sizes</span><span class="marquee-sep" data-pretzel></span>
               <span class="marquee-item">Good stuff inside</span><span class="marquee-sep" data-pretzel></span>
-              <span class="marquee-item">Online ordering <em>coming soon</em></span><span class="marquee-sep" data-pretzel></span>
+              <span class="marquee-item">Buy the menu through <em>VE Hub</em></span><span class="marquee-sep" data-pretzel></span>
             </div>
           </div>
         </div>
@@ -291,7 +291,7 @@
               <p class="big-quote" data-split="lines">It’s what’s on the inside that <em>counts.</em></p>
               <div style="display:grid;gap:20px;justify-items:start">
                 <p class="body-l" style="color:rgba(246,234,214,.75)" data-reveal>Browse the current Stuff’d menu, with prices that match the POS list.</p>
-                <a class="btn btn--light" href="shop.html" data-magnetic data-reveal><span class="btn-label">See the full menu</span></a>
+                <a class="btn btn--light" href="shop.html#boxes" data-magnetic data-reveal><span class="btn-label">See the full menu</span></a>
               </div>
             </div>
           </div>
@@ -326,7 +326,7 @@
                 <button class="box-opt" aria-pressed="true" data-size="24" data-price="32.99" data-label="Party Box · 24 Count" data-id="party-24"><span class="radio"></span><span><strong>Party Box · 24 Count</strong><span class="small muted">Current POS item 324908276</span></span><span class="price">$32.99</span></button>
                 <button class="box-opt" aria-pressed="false" data-size="48" data-price="49.99" data-label="Party Box · 48 Count" data-id="party-48"><span class="radio"></span><span><strong>Party Box · 48 Count</strong><span class="small muted">Current POS item 153286592</span></span><span class="price">$49.99</span></button>
               </div>
-              <button class="btn" id="boxAdd" data-add="party-24" data-magnetic><span class="btn-label">Add to preview bag · <span id="boxName">Party Box · 24 Count</span><span class="btn-price" id="boxPrice">$32.99</span></span></button>
+              <a class="btn" id="boxAdd" href="https://portal.veinternational.org/buybuttons/us0111241/btn/stuffd-party-box-24-count-324908276/" target="_blank" rel="noopener noreferrer" data-ve-buy data-magnetic><span class="btn-label">Order through VE Hub · <span id="boxName">Party Box · 24 Count</span><span class="btn-price" id="boxPrice">$32.99</span></span></a>
             </div>
             <div class="box-stage">
               <div class="box-tray" id="boxTray" data-size="24"></div>
@@ -351,7 +351,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/combine/npm/gsap@3.13.0/dist/gsap.min.js,npm/gsap@3.13.0/dist/CustomEase.min.js,npm/gsap@3.13.0/dist/CustomBounce.min.js,npm/gsap@3.13.0/dist/CustomWiggle.min.js,npm/gsap@3.13.0/dist/EasePack.min.js,npm/gsap@3.13.0/dist/ScrollTrigger.min.js,npm/gsap@3.13.0/dist/ScrollSmoother.min.js,npm/gsap@3.13.0/dist/ScrollToPlugin.min.js,npm/gsap@3.13.0/dist/SplitText.min.js,npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js,npm/gsap@3.13.0/dist/TextPlugin.min.js,npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js,npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js,npm/gsap@3.13.0/dist/MotionPathPlugin.min.js,npm/gsap@3.13.0/dist/Flip.min.js,npm/gsap@3.13.0/dist/Draggable.min.js,npm/gsap@3.13.0/dist/InertiaPlugin.min.js,npm/gsap@3.13.0/dist/Observer.min.js,npm/gsap@3.13.0/dist/Physics2DPlugin.min.js,npm/gsap@3.13.0/dist/PhysicsPropsPlugin.min.js"></script>
-  <script src="assets/js/site.js?v=11"></script>
-  <script src="assets/js/home.js?v=11"></script>
+  <script src="assets/js/site.js?v=12"></script>
+  <script src="assets/js/home.js?v=12"></script>
 </body>
 </html>

@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shop — Stuff’d.</title>
-  <meta name="description" content="Shop upcycled stuffed pretzel bites: savory, sweet, variety boxes and gifts.">
+  <meta name="description" content="Shop Stuff’d stuffed pretzels: seven current pouch flavors and two Party Box sizes.">
   <meta name="theme-color" content="#F4A6C6">
   <link rel="canonical" href="https://stuffdve.com/shop.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Stuff’d.">
   <meta property="og:title" content="Shop — Stuff’d.">
-  <meta property="og:description" content="Shop upcycled stuffed pretzel bites: savory, sweet, variety boxes and gifts.">
+  <meta property="og:description" content="Shop Stuff’d stuffed pretzels: seven current pouch flavors and two Party Box sizes.">
   <meta property="og:url" content="https://stuffdve.com/shop.html">
   <meta property="og:image" content="https://stuffdve.com/assets/img/og.png">
   <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@300..600&family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=11">
+  <link rel="stylesheet" href="assets/css/style.css?v=12">
   <script>try{var c=document.documentElement.classList,n=sessionStorage.getItem("stuffd-nav")==="1",s=sessionStorage.getItem("stuffd-seen")==="1";if(n)c.add("is-nav");if(n||s)c.add("skip-preloader")}catch(e){}</script>
 </head>
 <body data-page="shop">
@@ -36,6 +36,7 @@
               <p class="lede" data-split="lines" data-now data-delay=".4">Seven current pouch flavors, two party boxes, and a whole lot of good stuff inside.</p>
               <div data-speed="1.2" style="width:clamp(160px,18vw,300px)" data-bite="strawberry" data-cut data-float></div>
             </div>
+            <div class="hero-cta" style="justify-content:flex-start"><a class="btn" href="#boxes" data-magnetic><span class="btn-label">Pick a bite &amp; buy</span></a></div>
           </div>
         </section>
 
@@ -45,7 +46,7 @@
               <span class="marquee-item">7 current pouch flavors</span><span class="marquee-sep" data-pretzel></span>
               <span class="marquee-item"><em>2 party box sizes</em></span><span class="marquee-sep" data-pretzel></span>
               <span class="marquee-item">Current POS prices</span><span class="marquee-sep" data-pretzel></span>
-              <span class="marquee-item">Online checkout coming soon</span><span class="marquee-sep" data-pretzel></span>
+              <span class="marquee-item">Buy through <em>VE Hub</em></span><span class="marquee-sep" data-pretzel></span>
             </div>
           </div>
         </div>
@@ -95,7 +96,7 @@
             </div>
             <div>
               <div class="acc-item"><button class="acc-btn">Are these the current flavors?<span class="acc-icon"></span></button><div class="acc-panel"><p>Yes. The seven pouch flavors and two party box prices shown here match the current POS menu you shared. Availability may vary.</p></div></div>
-              <div class="acc-item"><button class="acc-btn">Can I order online?<span class="acc-icon"></span></button><div class="acc-panel"><p>This site is a storefront preview. The bag lets you browse products, but online checkout and shipping are not connected yet.</p></div></div>
+              <div class="acc-item"><button class="acc-btn">Can I order online?<span class="acc-icon"></span></button><div class="acc-panel"><p>Yes. Each current menu item has a VE Hub Buy button that opens its checkout cart. Check the VE Hub checkout for current order details.</p></div></div>
               <div class="acc-item"><button class="acc-btn">Where can I check ingredients and allergens?<span class="acc-icon"></span></button><div class="acc-panel"><p>Please use the current product packaging or ask Stuff’d staff for ingredient and allergen information.</p></div></div>
             </div>
           </div>
@@ -119,15 +120,14 @@
         <ul class="hz-notes" id="qvNotes" style="margin:0"></ul>
         <div class="nutri" id="qvNutri"></div>
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-          <div class="qty"><button aria-label="Decrease" data-qty="-1">−</button><output id="qvQty">1</output><button aria-label="Increase" data-qty="1">+</button></div>
-          <button class="btn" id="qvAdd" data-add=""><span class="btn-label">Add to bag<span class="btn-price" id="qvPrice">$8</span></span></button>
+          <a class="btn" id="qvBuy" data-ve-buy href="https://portal.veinternational.org/buybuttons/us0111241/btn/stuffd-staple-pouch-cheese-989750284/" target="_blank" rel="noopener noreferrer"><span class="btn-label">Buy on VE Hub<span class="btn-price" id="qvPrice">$14.99</span></span></a>
         </div>
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/combine/npm/gsap@3.13.0/dist/gsap.min.js,npm/gsap@3.13.0/dist/CustomEase.min.js,npm/gsap@3.13.0/dist/CustomBounce.min.js,npm/gsap@3.13.0/dist/CustomWiggle.min.js,npm/gsap@3.13.0/dist/EasePack.min.js,npm/gsap@3.13.0/dist/ScrollTrigger.min.js,npm/gsap@3.13.0/dist/ScrollSmoother.min.js,npm/gsap@3.13.0/dist/ScrollToPlugin.min.js,npm/gsap@3.13.0/dist/SplitText.min.js,npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js,npm/gsap@3.13.0/dist/TextPlugin.min.js,npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js,npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js,npm/gsap@3.13.0/dist/MotionPathPlugin.min.js,npm/gsap@3.13.0/dist/Flip.min.js,npm/gsap@3.13.0/dist/Draggable.min.js,npm/gsap@3.13.0/dist/InertiaPlugin.min.js,npm/gsap@3.13.0/dist/Observer.min.js,npm/gsap@3.13.0/dist/Physics2DPlugin.min.js,npm/gsap@3.13.0/dist/PhysicsPropsPlugin.min.js"></script>
-  <script src="assets/js/site.js?v=11"></script>
-  <script src="assets/js/shop.js?v=11"></script>
+  <script src="assets/js/site.js?v=12"></script>
+  <script src="assets/js/shop.js?v=12"></script>
 </body>
 </html>
