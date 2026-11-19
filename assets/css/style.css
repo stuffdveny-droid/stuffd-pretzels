@@ -459,7 +459,7 @@ html.skip-preloader .preloader { display: none; }
 .product-tag { position: absolute; top: 16px; left: 16px; padding: 7px 12px; border-radius: 99px; background: var(--milk); font-family: var(--f-mono); font-size: 11px; }
 .product-add {
   position: absolute; right: 14px; bottom: 14px; height: 46px; padding: 0 18px; border-radius: 99px; background: var(--cocoa); color: var(--cream);
-  font-size: 13px; font-weight: 700; transform: translateY(14px); opacity: 0; transition: transform .5s var(--ease-lux), opacity .4s;
+  display: inline-flex; align-items: center; text-decoration: none; font-size: 13px; font-weight: 700; transform: translateY(14px); opacity: 0; transition: transform .5s var(--ease-lux), opacity .4s;
 }
 .product:hover .product-add, .product-add:focus-visible { transform: none; opacity: 1; }
 @media (hover: none) { .product-add { transform: none; opacity: 1; } .product-art { cursor: auto; } }
