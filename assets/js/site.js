@@ -46,6 +46,10 @@
     { id: "party-48", name: "Party Box · 48 Count", html: "Party Box <em>48 Count</em>", fill: "#7A4128", panel: "#EED9B3", cat: "boxes", price: 49.99, sku: "153286592", kind: "box", sub: "48 count · POS 153286592",
       desc: "The 48-count Stuff’d Party Box from the current menu.", notes: ["48 count", "POS item 153286592"] }
   ]);
+  const veSlug = value => value.toLowerCase().replace(/[’'`]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const veBuyUrl = (name, sku) => `https://portal.veinternational.org/buybuttons/us0111241/btn/${veSlug(name)}-${sku}/`;
+  PRODUCTS.forEach(p => { p.veUrl = veBuyUrl(p.kind === "box" ? `Stuff'd ${p.name}` : `Stuff'd staple pouch - ${p.name}`, p.sku); });
+  FLAVORS.forEach(f => { f.veUrl = PRODUCTS.find(p => p.id === f.id).veUrl; });
   const byId = id => PRODUCTS.find(p => p.id === id);
 
   // ---------- svg art ----------
@@ -160,7 +164,7 @@
         <a class="h-logo" href="index.html" aria-label="Stuff’d. home">${LOGO()}</a>
         <div class="h-right">
           <a class="h-link link-u" href="stockists.html">Find us</a>
-          <button class="bag-btn" id="bagBtn" aria-controls="bag" data-magnetic=".25"><span class="bag-word">Bag</span><span class="bag-count" id="bagCount">0</span></button>
+          <a class="h-link link-u" href="shop.html#boxes" aria-label="Order Stuff’d through VE Hub">Order</a>
         </div>
       </header>
       <nav class="menu" id="menu" aria-label="Main">
@@ -174,24 +178,13 @@
             <a class="link-u" href="wholesale.html">Wholesale</a>
             <a class="link-u" href="faq.html">FAQ</a>
             <a class="link-u" href="contact.html">Contact</a>
-            <span style="margin-top:18px">Online ordering coming soon</span>
+            <a class="link-u" href="shop.html#boxes" style="margin-top:18px">Order through VE Hub ↗</a>
           </div>
         </div>
       </nav>
       <div class="curtain" id="curtain" aria-hidden="true"></div>
       <div class="cursor" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"><span></span></div>
-      <aside class="bag" id="bag" aria-label="Your bag" aria-hidden="true">
-        <div class="bag-scrim" data-bag-close></div>
-        <div class="bag-panel" role="dialog" aria-modal="true" aria-labelledby="bagTitle">
-          <div class="bag-head"><h2 id="bagTitle">Preview bag</h2><button class="link-u" data-bag-close>Close</button></div>
-          <ul class="bag-items" id="bagItems"></ul>
-          <div class="bag-foot">
-            <div class="small" id="bagShipMsg">Preview only · online checkout is not connected</div>
-            <div class="bag-total"><span>Subtotal</span><span id="bagTotal">$0</span></div>
-            <button class="btn" id="checkoutBtn"><span class="btn-label">Check out</span></button>
-          </div>
-        </div>
-      </aside>`);
+      `);
 
     document.querySelectorAll("[data-bite]").forEach(el => {
       el.innerHTML = biteSVG(byId(el.dataset.bite) || FLAVORS[0], { cut: el.hasAttribute("data-cut"), cls: el.dataset.biteClass || "" });
@@ -206,7 +199,8 @@
           <div class="f-top">
             <div class="f-col">
               <p class="f-lede">Soft pretzels. Big stuff inside.</p>
-              <p class="small muted">Online ordering and email updates are coming soon.</p>
+              <p class="small muted">The current menu is ready to order through VE Hub.</p>
+              <a class="link-u" href="shop.html#boxes">Shop and order ↗</a>
             </div>
             <div class="f-col"><h4>Shop</h4><ul>
               <li><a class="link-u" href="shop.html">All bites</a></li><li><a class="link-u" href="flavors.html">The Lineup</a></li>
@@ -219,7 +213,7 @@
               <li><a class="link-u" href="https://instagram.com" rel="noopener">Instagram</a></li><li><a class="link-u" href="https://tiktok.com" rel="noopener">TikTok</a></li></ul></div>
           </div>
           <div class="f-bottom">
-            <span>© 2026 Stuff’d. Snacks. Rescued, stuffed and baked twice.</span>
+            <span>© 2026 Stuff’d. Soft pretzels. Good stuff inside.</span>
             <span class="idx">It’s what’s on the inside that counts</span>
             <button class="back-top link-u" data-top>Back to top</button>
           </div>
@@ -846,7 +840,6 @@
     safe(initHeader, "header");
     safe(initMenu, "menu");
     safe(initCursor, "cursor");
-    safe(initBag, "bag");
     safe(initAnchors, "anchors");
     safe(initSalt, "salt");
     // page-specific (pins) first so later triggers measure pin spacing correctly

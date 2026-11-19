@@ -14,7 +14,7 @@ STUFFD.page(function (S) {
         <p class="body-l">${f.desc}</p>
         <ul class="hz-notes">${f.notes.map(n => `<li>${n}</li>`).join("")}</ul>
         <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
-          <button class="btn" data-add="${f.id}" data-magnetic><span class="btn-label">Add to bag<span class="btn-price">$${f.price}</span></span></button>
+          <a class="btn" href="${f.veUrl}" target="_blank" rel="noopener noreferrer" data-ve-buy data-magnetic><span class="btn-label">Buy on VE Hub<span class="btn-price">$${f.price.toFixed(2)}</span></span></a>
           <a class="link-u" href="flavors.html#${f.id}" style="font-weight:700">See details</a>
         </div>
       </div>
@@ -306,6 +306,6 @@ STUFFD.page(function (S) {
     gsap.to("#boxPrice", { duration: 0.6, text: "$" + o.dataset.price, ease: "none" });
     gsap.to("#boxName", { duration: 0.8, scrambleText: { text: o.dataset.label, chars: "lowerCase", speed: 0.6 } });
     gsap.to("#boxLabel", { duration: 0.8, scrambleText: { text: o.dataset.label, chars: "Stuffd", speed: 0.6 } });
-    addBtn.dataset.add = o.dataset.id;
+    addBtn.href = byId(o.dataset.id).veUrl;
   }));
 });

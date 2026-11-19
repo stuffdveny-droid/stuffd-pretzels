@@ -15,8 +15,8 @@ STUFFD.page(function (S) {
             <p class="body-l slide-desc"><strong>${f.filling}.</strong> ${f.desc}</p>
             <div class="slide-specs"><span><b>$${f.price.toFixed(2)}</b>Current pouch price</span><span><b>${f.sku}</b>POS item</span></div>
             <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-              <button class="btn" data-add="${f.id}" data-magnetic><span class="btn-label">Add to bag<span class="btn-price">$${f.price}</span></span></button>
-              <a class="btn btn--ghost" href="shop.html" data-magnetic><span class="btn-label">Visit the shop</span></a>
+              <a class="btn" href="${f.veUrl}" target="_blank" rel="noopener noreferrer" data-ve-buy data-magnetic><span class="btn-label">Buy on VE Hub<span class="btn-price">$${f.price.toFixed(2)}</span></span></a>
+              <a class="btn btn--ghost" href="shop.html#boxes" data-magnetic><span class="btn-label">Visit the shop</span></a>
             </div>
           </div>
           <div class="slide-art"><div class="disc"></div>${biteSVG(f, { cut: true })}</div>
@@ -31,7 +31,7 @@ STUFFD.page(function (S) {
             <h2 class="slide-title">Party Box <em>24 Count.</em></h2>
             <p class="body-l slide-desc" style="color:rgba(246,234,214,.78)">The 24-count Stuff’d Party Box from the current POS menu.</p>
             <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-              <button class="btn btn--light" data-add="party-24" data-magnetic><span class="btn-label">Add to preview bag<span class="btn-price">$32.99</span></span></button>
+              <a class="btn btn--light" href="${byId("party-24").veUrl}" target="_blank" rel="noopener noreferrer" data-ve-buy data-magnetic><span class="btn-label">Buy on VE Hub<span class="btn-price">$32.99</span></span></a>
               <a class="link-u" href="index.html" style="font-weight:700">Back home</a>
               <a class="link-u" href="shop.html" style="font-weight:700">See all current products</a>
             </div>

@@ -5,15 +5,15 @@ STUFFD.page(function (S) {
 
   grid.innerHTML = PRODUCTS.map(p => `
     <article class="product" data-cat="${p.cat}" data-reveal>
-      <div class="product-art" style="--panel:${p.panel}" data-flip-id="art-${p.id}" data-cursor="View" data-open="${p.id}" role="button" tabindex="0" aria-label="Quick view ${p.name}">
+      <div class="product-art" style="--panel:${p.panel}" data-flip-id="art-${p.id}" data-cursor="View" data-open="${p.id}">
         ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ""}
         ${biteSVG(p, { cut: true, cls: "bite-main" })}
         ${biteSVG(p, { cut: false, cls: "bite-alt" })}
-        <button class="product-add" data-add="${p.id}">Add to bag</button>
+        <a class="product-add" href="${p.veUrl}" target="_blank" rel="noopener noreferrer" data-ve-buy aria-label="Buy ${p.name} on VE Hub">Buy on VE Hub</a>
       </div>
       <div class="product-info">
         <div><h3>${p.name}</h3><p>${p.sub}</p><span class="small muted">POS ${p.sku}</span></div>
-        <span class="product-price">$${p.price.toFixed(2)}</span>
+        <div style="display:grid;gap:8px;justify-items:end"><span class="product-price">$${p.price.toFixed(2)}</span><button type="button" class="link-u" data-open="${p.id}">Quick view</button></div>
       </div>
     </article>`).join("");
 
@@ -30,12 +30,11 @@ STUFFD.page(function (S) {
   // ---------- quick view (Flip from card art) ----------
   const qv = document.getElementById("qv");
   const qvArt = document.getElementById("qvArt");
-  const qty = document.getElementById("qvQty");
-  let current = null, sourceArt = null;
+  let sourceArt = null;
 
   function open(id, art) {
     const p = byId(id);
-    current = p; sourceArt = art;
+    sourceArt = art;
     qvArt.style.setProperty("--panel", p.panel);
     qvArt.innerHTML = biteSVG(p, { cut: true });
     document.getElementById("qvSub").textContent = p.kind === "flavor" ? p.sub : p.sub;
@@ -43,9 +42,7 @@ STUFFD.page(function (S) {
     document.getElementById("qvDesc").textContent = p.desc;
     document.getElementById("qvNotes").innerHTML = p.notes.map(n => `<li>${n}</li>`).join("");
     document.getElementById("qvNutri").innerHTML = `<div><b>${p.sku}</b><span class="small">POS item</span></div>`;
-    qty.textContent = "1";
-    document.getElementById("qvAdd").dataset.add = p.id;
-    document.getElementById("qvAdd").dataset.qty = "1";
+    document.getElementById("qvBuy").href = p.veUrl;
     document.getElementById("qvPrice").textContent = "$" + p.price.toFixed(2);
 
     const state = Flip.getState(art);
@@ -68,25 +65,17 @@ STUFFD.page(function (S) {
       .set([".qv-panel", ".qv-body > *"], { clearProps: "all" });
   }
   grid.addEventListener("click", e => {
-    if (e.target.closest("[data-add]")) return;
+    if (e.target.closest("[data-ve-buy]")) return;
     const art = e.target.closest("[data-open]");
     if (art) open(art.dataset.open, art);
   });
   grid.addEventListener("keydown", e => {
+    if (e.target.closest("[data-ve-buy]")) return;
     const art = e.target.closest("[data-open]");
-    if (art && (e.key === "Enter" || e.key === " ") && !e.target.closest("[data-add]")) { e.preventDefault(); open(art.dataset.open, art); }
+    if (art && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); open(art.dataset.open, art); }
   });
   qv.addEventListener("click", e => {
     if (e.target.closest("[data-qv-close]")) close();
-    const q = e.target.closest("[data-qty]");
-    if (q) {
-      const n = Math.max(1, Math.min(24, parseInt(qty.textContent, 10) + parseInt(q.dataset.qty, 10)));
-      qty.textContent = n;
-      document.getElementById("qvAdd").dataset.qty = String(n);
-      gsap.fromTo(qty, { yPercent: q.dataset.qty > 0 ? 60 : -60, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 0.4, ease: "back.out(3)" });
-      gsap.to("#qvPrice", { duration: 0.4, text: "$" + (n * current.price).toFixed(2), ease: "none" });
-    }
-    if (e.target.closest("#qvAdd")) setTimeout(close, 900);
   });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && qv.getAttribute("aria-hidden") === "false") close(); });
 });
